@@ -2,9 +2,9 @@
 {
     public class SendMessageUserDto
     {
-        public int ReceptorId { get; set; }
         public int EmisorId { get; set; }
-        public int MessageId { get; set; }
-
+        public string Message { get; set; }
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
     }
 }

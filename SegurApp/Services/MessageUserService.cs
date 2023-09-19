@@ -29,10 +29,10 @@ namespace SegurApp.Services
 
         public void SendMessageUser(SendMessageUserDto sendMessageUserDto)
         {
-            Message message = _messageRepository.GetById(sendMessageUserDto.MessageId);
+            Message message = _messageRepository.GetByDescription(sendMessageUserDto.Message);
             User emisor = _userRepository.GetById(sendMessageUserDto.EmisorId);
-            _hubContext.Clients.All.SendAsync("ReceiveMessage", message, emisor);
-            _messageUserRepository.Add(sendMessageUserDto);            
+            _hubContext.Clients.All.SendAsync("ReceiveMessage", message, emisor, sendMessageUserDto.Latitude, sendMessageUserDto.Longitude);
+            _messageUserRepository.Add(sendMessageUserDto.EmisorId, message.Id, sendMessageUserDto.Latitude, sendMessageUserDto.Longitude);            
         }
     }
 }

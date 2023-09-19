@@ -3925,11 +3925,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "H:\\Archivos\\Repos\\Segurapp\\SegurApp\\SegurApp\\SegurApp.csproj",
+      "projectUniqueName": "H:\\Archivos\\Repos\\Segurapp\\segurapp-backend\\SegurApp\\SegurApp.csproj",
       "projectName": "SegurApp",
-      "projectPath": "H:\\Archivos\\Repos\\Segurapp\\SegurApp\\SegurApp\\SegurApp.csproj",
+      "projectPath": "H:\\Archivos\\Repos\\Segurapp\\segurapp-backend\\SegurApp\\SegurApp.csproj",
       "packagesPath": "C:\\Users\\ciro_\\.nuget\\packages\\",
-      "outputPath": "H:\\Archivos\\Repos\\Segurapp\\SegurApp\\SegurApp\\obj\\",
+      "outputPath": "H:\\Archivos\\Repos\\Segurapp\\segurapp-backend\\SegurApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ciro_\\AppData\\Roaming\\NuGet\\NuGet.Config",

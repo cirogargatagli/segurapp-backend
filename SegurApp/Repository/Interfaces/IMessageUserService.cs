@@ -5,6 +5,6 @@ namespace SegurApp.Repository.Interfaces
 {
     public interface IMessageUserRepository
     {
-        void Add(SendMessageUserDto sendMessageUserDto);
+        void Add(int emisorId, int messageId, double latitude, double longitude);
     }
 }

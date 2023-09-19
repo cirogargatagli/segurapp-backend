@@ -14,14 +14,15 @@ namespace SegurApp.Repository
             _context = context;
         }
 
-        public void Add(SendMessageUserDto sendMessageUserDto)
+        public void Add(int emisorId, int messageId, double latitude, double longitude)
         {
             _context.Add(new MessageUsers
             {
                 OccurredAt = DateTime.Now,
-                EmisorId = sendMessageUserDto.EmisorId,
-                ReceptorId = sendMessageUserDto.ReceptorId,
-                MessageId = sendMessageUserDto.MessageId
+                EmisorId = emisorId,
+                MessageId = messageId,
+                Latitude = latitude,
+                Longitude = longitude
             });
             _context.SaveChanges();
         }

@@ -37,6 +37,28 @@ namespace SegurApp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Messages");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Description = "Robo"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Description = "Sospechoso"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Description = "Alerta"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Description = "Pelea"
+                        });
                 });
 
             modelBuilder.Entity("SegurApp.Infraestructure.Entities.MessageUsers", b =>
@@ -50,13 +72,19 @@ namespace SegurApp.Migrations
                     b.Property<int>("EmisorId")
                         .HasColumnType("int");
 
+                    b.Property<double>("Latitude")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Longitude")
+                        .HasColumnType("float");
+
                     b.Property<int>("MessageId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("OccurredAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("ReceptorId")
+                    b.Property<int?>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -65,7 +93,7 @@ namespace SegurApp.Migrations
 
                     b.HasIndex("MessageId");
 
-                    b.HasIndex("ReceptorId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("MessagesUsers");
                 });
@@ -173,17 +201,13 @@ namespace SegurApp.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("SegurApp.Infraestructure.Entities.User", "Receptor")
+                    b.HasOne("SegurApp.Infraestructure.Entities.User", null)
                         .WithMany("MessageUsersReceptor")
-                        .HasForeignKey("ReceptorId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
+                        .HasForeignKey("UserId");
 
                     b.Navigation("Emisor");
 
                     b.Navigation("Message");
-
-                    b.Navigation("Receptor");
                 });
 
             modelBuilder.Entity("SegurApp.Infraestructure.Entities.User", b =>

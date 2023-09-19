@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "or2ubkkN64NzGg20eKvKnOyNyPjt3L/74s/CINODWpJtLUCMCZ4luPWeZ0nG6ell/B85jOhn0ZVwxCuJzx4M/g==",
+  "dgSpecHash": "+H1tfbyhSQLW2SU2wH5t+aqqkeENPWJNvxOD4LgQ+w9ASnCvWln2MiIWkYz1o2LpiIGtCRHrVW9yFvmuZB+Hpg==",
   "success": true,
-  "projectFilePath": "H:\\Archivos\\Repos\\Segurapp\\SegurApp\\SegurApp\\SegurApp.csproj",
+  "projectFilePath": "H:\\Archivos\\Repos\\Segurapp\\segurapp-backend\\SegurApp\\SegurApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ciro_\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\ciro_\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

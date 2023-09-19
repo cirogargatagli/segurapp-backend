@@ -34,7 +34,6 @@ namespace SegurApp.Infraestructure
             {
                 entity.HasOne(x => x.Emisor).WithMany(a => a.MessageUsersEmisor).HasForeignKey(x => x.EmisorId).OnDelete(DeleteBehavior.NoAction);
                 entity.HasOne(x => x.Message).WithMany(a => a.MessageUsers).HasForeignKey(x => x.MessageId);
-                entity.HasOne(x => x.Receptor).WithMany(a => a.MessageUsersReceptor).HasForeignKey(x => x.ReceptorId).OnDelete(DeleteBehavior.NoAction);
             });
 
             modelBuilder.Entity<Role>().HasData(
@@ -61,8 +60,8 @@ namespace SegurApp.Infraestructure
                    Phone = "1128341234",
                    Dni = "12345678",
                    RoleId = 1,
-               },
-                new User
+               },                
+               new User
                 {
                     Id = 2,
                     FullName = "Ciro Gargatagli",
@@ -70,6 +69,29 @@ namespace SegurApp.Infraestructure
                     Phone = "1125714153",
                     Dni = "12345679",
                     RoleId = 2,
+                }
+            );
+
+            modelBuilder.Entity<Message>().HasData(
+               new Message
+               {
+                   Id = 1,
+                   Description = "Robo"
+               },
+               new Message
+               {
+                   Id = 2,
+                   Description = "Sospechoso"
+               },
+               new Message
+               {
+                   Id = 3,
+                   Description = "Alerta"
+               },               
+               new Message
+                {
+                    Id = 4,
+                    Description = "Pelea"
                 }
             );
         }

@@ -17,5 +17,10 @@ namespace SegurApp.Repository
         {
             return _context.Messages.Where(x => x.Id == id).FirstOrDefault();
         }
+
+        public Message GetByDescription(string description)
+        {
+            return _context.Messages.Where(x => x.Description.ToUpper() == description.ToUpper()).FirstOrDefault();
+        }
     }
 }

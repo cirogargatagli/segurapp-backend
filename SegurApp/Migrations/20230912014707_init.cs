@@ -70,9 +70,11 @@ namespace SegurApp.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     OccurredAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ReceptorId = table.Column<int>(type: "int", nullable: false),
+                    Latitude = table.Column<double>(type: "float", nullable: false),
+                    Longitude = table.Column<double>(type: "float", nullable: false),
                     EmisorId = table.Column<int>(type: "int", nullable: false),
-                    MessageId = table.Column<int>(type: "int", nullable: false)
+                    MessageId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -89,10 +91,21 @@ namespace SegurApp.Migrations
                         principalTable: "Users",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_MessagesUsers_Users_ReceptorId",
-                        column: x => x.ReceptorId,
+                        name: "FK_MessagesUsers_Users_UserId",
+                        column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id");
+                });
+
+            migrationBuilder.InsertData(
+                table: "Messages",
+                columns: new[] { "Id", "Description" },
+                values: new object[,]
+                {
+                    { 1, "Robo" },
+                    { 2, "Sospechoso" },
+                    { 3, "Alerta" },
+                    { 4, "Pelea" }
                 });
 
             migrationBuilder.InsertData(
@@ -124,9 +137,9 @@ namespace SegurApp.Migrations
                 column: "MessageId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_MessagesUsers_ReceptorId",
+                name: "IX_MessagesUsers_UserId",
                 table: "MessagesUsers",
-                column: "ReceptorId");
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Users_RoleId",

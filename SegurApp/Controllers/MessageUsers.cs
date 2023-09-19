@@ -5,7 +5,7 @@ using SegurApp.Services.Interfaces;
 
 namespace SegurApp.Controllers
 {
-    [Route("api/users")]
+    [Route("api/message-users")]
     [ApiController]
     public class MessageUserController : Controller
     {
