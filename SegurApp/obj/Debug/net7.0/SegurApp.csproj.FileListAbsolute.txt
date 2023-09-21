@@ -378,3 +378,6 @@ D:\Archivos\Documentos\Universidad\Programacion en Tiempo Real\segurapp-backend\
 D:\Archivos\Documentos\Universidad\Programacion en Tiempo Real\segurapp-backend\SegurApp\obj\Debug\net7.0\SegurApp.pdb
 D:\Archivos\Documentos\Universidad\Programacion en Tiempo Real\segurapp-backend\SegurApp\obj\Debug\net7.0\SegurApp.genruntimeconfig.cache
 D:\Archivos\Documentos\Universidad\Programacion en Tiempo Real\segurapp-backend\SegurApp\obj\Debug\net7.0\ref\SegurApp.dll
+D:\Archivos\Documentos\Universidad\Programacion en Tiempo Real\segurapp-backend\SegurApp\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Archivos\Documentos\Universidad\Programacion en Tiempo Real\segurapp-backend\SegurApp\bin\Debug\net7.0\SegurAppJWToken.dll
+D:\Archivos\Documentos\Universidad\Programacion en Tiempo Real\segurapp-backend\SegurApp\bin\Debug\net7.0\SegurAppJWToken.pdb

@@ -1,10 +1,17 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using SegurApp.Infraestructure;
 using SegurApp.Repository;
 using SegurApp.Repository.Interfaces;
 using SegurApp.Services;
 using SegurApp.Services.Hubs;
 using SegurApp.Services.Interfaces;
+using SegurAppJWToken;
+using SegurAppJWToken.JWToken;
+using SegurAppJWToken.JWToken.Interfaces;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +28,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//Autenticacion jwt
+builder.Services.AddJWTAuthentication(builder.Configuration);
 
 //Inyecciones
 
@@ -29,6 +38,7 @@ builder.Services.AddTransient<IUserRepository, UserRepository>();
 builder.Services.AddTransient<IMessageRepository, MessageRepository>();
 builder.Services.AddTransient<IMessageUserRepository, MessageUsersRepository>();
 builder.Services.AddTransient<IMessageUserService, MessageUserService>();
+builder.Services.AddTransient<IJWTokenManejo, JWTokenManejo>();
 
 //CORS
 
@@ -59,6 +69,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

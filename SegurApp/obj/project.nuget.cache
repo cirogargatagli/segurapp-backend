@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "HQqqMl6OZlZ3L4gT2IqiriZkNuEJg93Hk6A5ihEpVaJfw4Z4MUGg2KhcCSazVgiROhbVNhzhQ/3U+bdb9FR4YQ==",
+  "dgSpecHash": "YvPF2yrezS/gK1EcldUSWMkZUujzjE3LVwRdj7ylAL/0ce6jbMj+LWyL0dR7kJKVqN2SDnhCl08lKUYNawtsSg==",
   "success": true,
   "projectFilePath": "D:\\Archivos\\Documentos\\Universidad\\Programacion en Tiempo Real\\segurapp-backend\\SegurApp\\SegurApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\LeanLima\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\LeanLima\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\LeanLima\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\LeanLima\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\7.0.11\\microsoft.aspnetcore.authentication.jwtbearer.7.0.11.nupkg.sha512",
     "C:\\Users\\LeanLima\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.10\\microsoft.aspnetcore.openapi.7.0.10.nupkg.sha512",
     "C:\\Users\\LeanLima\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\LeanLima\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
