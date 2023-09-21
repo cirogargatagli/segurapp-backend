@@ -3920,19 +3920,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ciro_\\.nuget\\packages\\": {}
+    "C:\\Users\\LeanLima\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "H:\\Archivos\\Repos\\Segurapp\\segurapp-backend\\SegurApp\\SegurApp.csproj",
+      "projectUniqueName": "D:\\Archivos\\Documentos\\Universidad\\Programacion en Tiempo Real\\segurapp-backend\\SegurApp\\SegurApp.csproj",
       "projectName": "SegurApp",
-      "projectPath": "H:\\Archivos\\Repos\\Segurapp\\segurapp-backend\\SegurApp\\SegurApp.csproj",
-      "packagesPath": "C:\\Users\\ciro_\\.nuget\\packages\\",
-      "outputPath": "H:\\Archivos\\Repos\\Segurapp\\segurapp-backend\\SegurApp\\obj\\",
+      "projectPath": "D:\\Archivos\\Documentos\\Universidad\\Programacion en Tiempo Real\\segurapp-backend\\SegurApp\\SegurApp.csproj",
+      "packagesPath": "C:\\Users\\LeanLima\\.nuget\\packages\\",
+      "outputPath": "D:\\Archivos\\Documentos\\Universidad\\Programacion en Tiempo Real\\segurapp-backend\\SegurApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ciro_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\LeanLima\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4000,7 +4000,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }
