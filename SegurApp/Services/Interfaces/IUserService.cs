@@ -5,5 +5,6 @@ namespace SegurApp.Services.Interfaces
     public interface IUserService
     {
         List<User> GetAll();
+        User GetById(Domain.QueryParameters queryParameters);
     }
 }

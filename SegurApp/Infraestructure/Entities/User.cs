@@ -11,7 +11,7 @@
         public int RoleId { get; set; }
         public Role Role { get; set; }
         public ICollection<MessageUsers> MessageUsersEmisor { get; set; }
-        public ICollection<MessageUsers> MessageUsersReceptor { get; set; }
+        //public ICollection<MessageUsers> MessageUsersReceptor { get; set; }
 
     }
 }

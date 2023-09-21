@@ -20,8 +20,12 @@ namespace SegurApp.Repository
 
         public User GetById(int id)
         {
-            return _context.Users.Where(x => x.Id == id).FirstOrDefault();
+            return _context.Find<User>(id);//_context.Users.Where(x => x.Id == id).FirstOrDefault();
         }
-
+        public User GetByParam(Domain.QueryParameters queryParameters)
+        {
+            return _context.Users.Where(x => (x.Id == null || x.Id == queryParameters.Id) && 
+                                             (x.Email == null || x.Email == queryParameters.Email)).FirstOrDefault();
+        }
     }
 }

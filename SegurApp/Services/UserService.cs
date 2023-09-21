@@ -1,4 +1,5 @@
-﻿using SegurApp.Infraestructure.Entities;
+﻿using Microsoft.IdentityModel.Tokens;
+using SegurApp.Infraestructure.Entities;
 using SegurApp.Repository.Interfaces;
 using SegurApp.Services.Interfaces;
 
@@ -15,6 +16,16 @@ namespace SegurApp.Services
         public List<User> GetAll()
         {
             return _userRepository.GetAll();
+        }
+
+        public User GetById(Domain.QueryParameters queryParameters)
+        {
+            if (queryParameters.Email.IsNullOrEmpty())
+            {
+                return _userRepository.GetById(queryParameters.Id);
+            }
+
+            return _userRepository.GetByParam(queryParameters);
         }
     }
 }

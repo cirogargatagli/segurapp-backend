@@ -4,7 +4,7 @@ using SegurApp.Services.Interfaces;
 
 namespace SegurApp.Controllers
 {
-    [Route("api/users")]
+    [Route("api/user")]
     [ApiController]
     public class UserController : Controller
     {
@@ -15,10 +15,16 @@ namespace SegurApp.Controllers
             _userService = userService;         
         }
 
-        [HttpGet]
+        [HttpGet("all")]
         public List<User> GetAll() 
         {
             return _userService.GetAll();
+        }
+
+        [HttpGet]
+        public User GetById([FromQuery] Domain.QueryParameters queryParameters)
+        {
+            return _userService.GetById(queryParameters);
         }
     }
 }

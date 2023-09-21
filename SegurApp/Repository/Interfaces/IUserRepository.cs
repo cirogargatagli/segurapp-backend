@@ -10,6 +10,7 @@ namespace SegurApp.Repository.Interfaces
         //User GetById(int UsuarioId);
         //User Delete(int UsuarioId);
         User GetById(int id);
+        User GetByParam(Domain.QueryParameters queryParameters);
 
     }
 }
