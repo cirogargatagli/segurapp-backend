@@ -11,6 +11,6 @@ namespace SegurApp.Repository.Interfaces
         //User Delete(int UsuarioId);
         User GetById(int id);
         User GetByParam(Domain.QueryParameters queryParameters);
-
+        User CreateUser(string FullName, string Dni, string Email, string Phone, String Password);
     }
 }

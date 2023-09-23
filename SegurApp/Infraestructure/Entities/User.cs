@@ -1,7 +1,10 @@
-﻿namespace SegurApp.Infraestructure.Entities
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace SegurApp.Infraestructure.Entities
 {
     public class User
     {
+        [Key]
         public int Id { get; set; }
         public string FullName { get; set; }
         public string Dni {  get; set; }

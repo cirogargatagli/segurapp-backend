@@ -13,6 +13,11 @@ namespace SegurApp.Services
             _userRepository = userRepository;
         }
 
+        public User CreateUser(string FullName, string Dni, string Email, string Phone, String Password)
+        {
+            return _userRepository.CreateUser(FullName, Dni, Email, Phone, Password);
+        }
+
         public List<User> GetAll()
         {
             return _userRepository.GetAll();

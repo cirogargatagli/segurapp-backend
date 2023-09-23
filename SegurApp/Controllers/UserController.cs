@@ -32,5 +32,11 @@ namespace SegurApp.Controllers
             string jwt = _tokenManejo.GenerateToken("leandrolima@gmail.com");
             return _userService.GetById(queryParameters);
         }
+
+        [HttpPost]
+        public User CreateUser(string FullName, string Dni, string Email, string Phone, String Password)
+        {
+            return _userService.CreateUser(FullName, Dni, Email, Phone, Password);
+        }
     }
 }

@@ -27,5 +27,23 @@ namespace SegurApp.Repository
             return _context.Users.Where(x => (x.Id == null || x.Id == queryParameters.Id) && 
                                              (x.Email == null || x.Email == queryParameters.Email)).FirstOrDefault();
         }
+
+        public User CreateUser(string FullName, string Dni, string Email, string Phone, String Password)
+        {
+            User user = new User()
+            {
+                FullName = FullName,
+                Dni = Dni,
+                Email = Email,
+                Phone = Phone,
+                Password = Password,
+                RoleId = 1
+            };
+
+            _context.Users.Add(user);
+            _context.SaveChanges();
+
+            return user;
+        }
     }
 }

@@ -12,8 +12,8 @@ using SegurApp.Infraestructure;
 namespace SegurApp.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20230923132145_fixes")]
-    partial class fixes
+    [Migration("20230923155955_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
