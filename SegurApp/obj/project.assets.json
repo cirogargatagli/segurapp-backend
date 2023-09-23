@@ -3974,19 +3974,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\LeanLima\\.nuget\\packages\\": {}
+    "C:\\Users\\Claudio\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Archivos\\Documentos\\Universidad\\Programacion en Tiempo Real\\segurapp-backend\\SegurApp\\SegurApp.csproj",
+      "projectUniqueName": "C:\\Users\\Claudio\\Downloads\\2do Cuatri 2023\\Programacion en tiempo real\\SegurApp\\segurapp-backend\\SegurApp\\SegurApp.csproj",
       "projectName": "SegurApp",
-      "projectPath": "D:\\Archivos\\Documentos\\Universidad\\Programacion en Tiempo Real\\segurapp-backend\\SegurApp\\SegurApp.csproj",
-      "packagesPath": "C:\\Users\\LeanLima\\.nuget\\packages\\",
-      "outputPath": "D:\\Archivos\\Documentos\\Universidad\\Programacion en Tiempo Real\\segurapp-backend\\SegurApp\\obj\\",
+      "projectPath": "C:\\Users\\Claudio\\Downloads\\2do Cuatri 2023\\Programacion en tiempo real\\SegurApp\\segurapp-backend\\SegurApp\\SegurApp.csproj",
+      "packagesPath": "C:\\Users\\Claudio\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Claudio\\Downloads\\2do Cuatri 2023\\Programacion en tiempo real\\SegurApp\\segurapp-backend\\SegurApp\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\LeanLima\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Claudio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3994,14 +3999,15 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "D:\\Archivos\\Documentos\\Universidad\\Programacion en Tiempo Real\\segurapp-backend\\SegurAppJWToken\\SegurAppJWToken.csproj": {
-              "projectPath": "D:\\Archivos\\Documentos\\Universidad\\Programacion en Tiempo Real\\segurapp-backend\\SegurAppJWToken\\SegurAppJWToken.csproj"
+            "C:\\Users\\Claudio\\Downloads\\2do Cuatri 2023\\Programacion en tiempo real\\SegurApp\\segurapp-backend\\SegurAppJWToken\\SegurAppJWToken.csproj": {
+              "projectPath": "C:\\Users\\Claudio\\Downloads\\2do Cuatri 2023\\Programacion en tiempo real\\SegurApp\\segurapp-backend\\SegurAppJWToken\\SegurAppJWToken.csproj"
             }
           }
         }

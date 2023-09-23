@@ -26,13 +26,21 @@ namespace SegurApp.Services
             _hubContext = hubContext;
         }
 
-
         public void SendMessageUser(SendMessageUserDto sendMessageUserDto)
         {
             Message message = _messageRepository.GetByDescription(sendMessageUserDto.Message);
             User emisor = _userRepository.GetById(sendMessageUserDto.EmisorId);
             _hubContext.Clients.All.SendAsync("ReceiveMessage", message, emisor, sendMessageUserDto.Latitude, sendMessageUserDto.Longitude);
             _messageUserRepository.Add(sendMessageUserDto.EmisorId, message.Id, sendMessageUserDto.Latitude, sendMessageUserDto.Longitude);            
+        }       
+
+        public List<MessageUsers> GetAllMessage()
+        {
+            List<MessageUsers> messageUsers = new List<MessageUsers>();
+
+            messageUsers = _messageUserRepository.GetAllMessage();
+
+            return messageUsers;
         }
     }
 }

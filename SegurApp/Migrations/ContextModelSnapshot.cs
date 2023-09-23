@@ -84,16 +84,11 @@ namespace SegurApp.Migrations
                     b.Property<DateTime>("OccurredAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("UserId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("EmisorId");
 
                     b.HasIndex("MessageId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("MessagesUsers");
                 });
@@ -153,6 +148,10 @@ namespace SegurApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Phone")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -173,6 +172,7 @@ namespace SegurApp.Migrations
                             Dni = "12345678",
                             Email = "cdamico@gmail.com",
                             FullName = "Claudio Damico",
+                            Password = "123",
                             Phone = "1128341234",
                             RoleId = 1
                         },
@@ -182,6 +182,7 @@ namespace SegurApp.Migrations
                             Dni = "12345679",
                             Email = "ciroshaila@gmail.com",
                             FullName = "Ciro Gargatagli",
+                            Password = "321",
                             Phone = "1125714153",
                             RoleId = 2
                         });
@@ -200,10 +201,6 @@ namespace SegurApp.Migrations
                         .HasForeignKey("MessageId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("SegurApp.Infraestructure.Entities.User", null)
-                        .WithMany("MessageUsersReceptor")
-                        .HasForeignKey("UserId");
 
                     b.Navigation("Emisor");
 
@@ -234,8 +231,6 @@ namespace SegurApp.Migrations
             modelBuilder.Entity("SegurApp.Infraestructure.Entities.User", b =>
                 {
                     b.Navigation("MessageUsersEmisor");
-
-                    b.Navigation("MessageUsersReceptor");
                 });
 #pragma warning restore 612, 618
         }

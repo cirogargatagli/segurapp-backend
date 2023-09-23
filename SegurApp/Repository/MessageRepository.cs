@@ -22,5 +22,10 @@ namespace SegurApp.Repository
         {
             return _context.Messages.Where(x => x.Description.ToUpper() == description.ToUpper()).FirstOrDefault();
         }
+
+        public List<Message> GetAll()
+        {
+            return _context.Messages.ToList();
+        }
     }
 }

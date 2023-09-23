@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SegurApp.Domain.Dto;
 using SegurApp.Infraestructure.Entities;
+using SegurApp.Services;
 using SegurApp.Services.Interfaces;
 
 namespace SegurApp.Controllers
@@ -27,6 +28,19 @@ namespace SegurApp.Controllers
             catch (Exception)
             {
                 return StatusCode(500, "Se produjo un error al enviar el mensaje");
+            }
+        }
+
+        [HttpGet]
+        public List<MessageUsers> GetAllMessages()
+        {
+            try
+            {
+                return _messageUserService.GetAllMessage();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
             }
         }
     }

@@ -12,6 +12,7 @@ using SegurAppJWToken;
 using SegurAppJWToken.JWToken;
 using SegurAppJWToken.JWToken.Interfaces;
 using System.Text;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,13 +32,16 @@ builder.Services.AddSwaggerGen();
 //Autenticacion jwt
 builder.Services.AddJWTAuthentication(builder.Configuration);
 
-//Inyecciones
+builder.Services.AddControllers().AddJsonOptions(x =>
+                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
+//Inyecciones
 builder.Services.AddTransient<IUserService, UserService>();
 builder.Services.AddTransient<IUserRepository, UserRepository>();
 builder.Services.AddTransient<IMessageRepository, MessageRepository>();
 builder.Services.AddTransient<IMessageUserRepository, MessageUsersRepository>();
 builder.Services.AddTransient<IMessageUserService, MessageUserService>();
+builder.Services.AddTransient<IMessageService, MessageService>();
 builder.Services.AddTransient<IJWTokenManejo, JWTokenManejo>();
 
 //CORS
@@ -82,3 +86,6 @@ app.MapHub<SendMessageHub>("/sendMessageHub");
 
 
 app.Run();
+
+
+

@@ -1,4 +1,6 @@
-﻿using SegurApp.Domain.Dto;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using SegurApp.Domain.Dto;
 using SegurApp.Infraestructure;
 using SegurApp.Infraestructure.Entities;
 using SegurApp.Repository.Interfaces;
@@ -26,5 +28,13 @@ namespace SegurApp.Repository
             });
             _context.SaveChanges();
         }
+
+        public List<MessageUsers> GetAllMessage()
+        {
+            List<MessageUsers> messageUsers = _context.MessagesUsers.Include(e => e.Emisor)
+                .Include(e => e.Message).ToList();
+
+            return messageUsers;
+        }      
     }
 }

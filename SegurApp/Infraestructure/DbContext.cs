@@ -60,6 +60,7 @@ namespace SegurApp.Infraestructure
                    Phone = "1128341234",
                    Dni = "12345678",
                    RoleId = 1,
+                   Password = "123"
                },                
                new User
                 {
@@ -69,7 +70,8 @@ namespace SegurApp.Infraestructure
                     Phone = "1125714153",
                     Dni = "12345679",
                     RoleId = 2,
-                }
+                   Password = "321"
+               }
             );
 
             modelBuilder.Entity<Message>().HasData(

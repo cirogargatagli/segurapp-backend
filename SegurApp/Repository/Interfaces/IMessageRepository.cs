@@ -6,5 +6,6 @@ namespace SegurApp.Repository.Interfaces
     {
         Message GetById(int id);
         Message GetByDescription(string description);
+        List<Message> GetAll();
     }
 }

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace SegurApp.Migrations
 {
     /// <inheritdoc />
-    public partial class init : Migration
+    public partial class fixes : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -50,6 +50,7 @@ namespace SegurApp.Migrations
                     Dni = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Phone = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     RoleId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -73,8 +74,7 @@ namespace SegurApp.Migrations
                     Latitude = table.Column<double>(type: "float", nullable: false),
                     Longitude = table.Column<double>(type: "float", nullable: false),
                     EmisorId = table.Column<int>(type: "int", nullable: false),
-                    MessageId = table.Column<int>(type: "int", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: true)
+                    MessageId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -88,11 +88,6 @@ namespace SegurApp.Migrations
                     table.ForeignKey(
                         name: "FK_MessagesUsers_Users_EmisorId",
                         column: x => x.EmisorId,
-                        principalTable: "Users",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_MessagesUsers_Users_UserId",
-                        column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id");
                 });
@@ -119,11 +114,11 @@ namespace SegurApp.Migrations
 
             migrationBuilder.InsertData(
                 table: "Users",
-                columns: new[] { "Id", "Dni", "Email", "FullName", "Phone", "RoleId" },
+                columns: new[] { "Id", "Dni", "Email", "FullName", "Password", "Phone", "RoleId" },
                 values: new object[,]
                 {
-                    { 1, "12345678", "cdamico@gmail.com", "Claudio Damico", "1128341234", 1 },
-                    { 2, "12345679", "ciroshaila@gmail.com", "Ciro Gargatagli", "1125714153", 2 }
+                    { 1, "12345678", "cdamico@gmail.com", "Claudio Damico", "123", "1128341234", 1 },
+                    { 2, "12345679", "ciroshaila@gmail.com", "Ciro Gargatagli", "321", "1125714153", 2 }
                 });
 
             migrationBuilder.CreateIndex(
@@ -135,11 +130,6 @@ namespace SegurApp.Migrations
                 name: "IX_MessagesUsers_MessageId",
                 table: "MessagesUsers",
                 column: "MessageId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_MessagesUsers_UserId",
-                table: "MessagesUsers",
-                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Users_RoleId",
