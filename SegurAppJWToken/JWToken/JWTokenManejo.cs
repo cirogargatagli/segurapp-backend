@@ -13,18 +13,14 @@ namespace SegurAppJWToken.JWToken
 {
     public class JWTokenManejo : IJWTokenManejo
     {
-        //private readonly IConfiguration _configuration;
-
-        public JWTokenManejo()
-        {
-        }
-
         public string GenerateToken(string mail)
         {
+            string? secretKey = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build().GetSection("Autenticacion")["SecretKey"];
+
             var header = new JwtHeader(
             new SigningCredentials(
                 new SymmetricSecurityKey(
-                        Encoding.UTF8.GetBytes("25bf7728-f388-4276-aedb-81549186d8ee")
+                        Encoding.UTF8.GetBytes(secretKey ?? string.Empty)
                     ),
                     SecurityAlgorithms.HmacSha256)
             );
