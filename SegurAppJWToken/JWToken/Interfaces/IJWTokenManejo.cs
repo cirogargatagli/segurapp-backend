@@ -8,6 +8,6 @@ namespace SegurAppJWToken.JWToken.Interfaces
 {
     public interface IJWTokenManejo
     {
-        string GenerateToken(string mail);
+        string GenerateToken(string usuario, string name, string rol);
     }
 }

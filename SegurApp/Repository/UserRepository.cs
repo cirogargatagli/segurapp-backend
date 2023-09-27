@@ -45,5 +45,10 @@ namespace SegurApp.Repository
 
             return user;
         }
+    
+        public User GetLogin(string email, string password)
+        {
+            return _context.Users.Where(x => x.Email == email && x.Password == password).FirstOrDefault();
+        }
     }
 }

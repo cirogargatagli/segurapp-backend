@@ -32,5 +32,10 @@ namespace SegurApp.Services
 
             return _userRepository.GetByParam(queryParameters);
         }
+        
+        public User LoginUser(string email, string password)
+        {
+            return _userRepository.GetLogin(email, password);
+        }
     }
 }

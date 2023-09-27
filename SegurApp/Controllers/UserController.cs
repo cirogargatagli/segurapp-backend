@@ -8,6 +8,7 @@ namespace SegurApp.Controllers
 {
     [Route("api/user")]
     [ApiController]
+
     public class UserController : Controller
     {
         private readonly IUserService _userService;
@@ -20,23 +21,39 @@ namespace SegurApp.Controllers
         }
 
         [HttpGet("all")]
-        [Authorize]
         public List<User> GetAll() 
         {
             return _userService.GetAll();
         }
 
         [HttpGet]
+        [Authorize]
         public User GetById([FromQuery] Domain.QueryParameters queryParameters)
         {
-            string jwt = _tokenManejo.GenerateToken("leandrolima@gmail.com");
+            string jwt = _tokenManejo.GenerateToken("", "", "");
             return _userService.GetById(queryParameters);
         }
 
         [HttpPost]
-        public User CreateUser(string FullName, string Dni, string Email, string Phone, String Password)
+        [Authorize]
+        public IActionResult CreateUser(string FullName, string Dni, string Email, string Phone, string Password)
         {
-            return _userService.CreateUser(FullName, Dni, Email, Phone, Password);
+            User user = _userService.CreateUser(FullName, Dni, Email, Phone, Password);
+
+            return Ok("Se realizó el alta correctamente");
+        }
+
+        [HttpPost("Login")]
+        public IActionResult LoginUser(string email, string Password)
+        {
+            User user = _userService.LoginUser(email, Password);
+            if (user == null)
+            {
+                return BadRequest("User/Pass Incorrecto");
+            }
+            string jwt = _tokenManejo.GenerateToken(user.Id.ToString(), user.FullName, user.RoleId.ToString());
+
+            return Ok(jwt);
         }
     }
 }

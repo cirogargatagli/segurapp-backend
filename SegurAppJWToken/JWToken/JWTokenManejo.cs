@@ -13,7 +13,7 @@ namespace SegurAppJWToken.JWToken
 {
     public class JWTokenManejo : IJWTokenManejo
     {
-        public string GenerateToken(string mail)
+        public string GenerateToken(string usuario,string name ,string rol)
         {
             string? secretKey = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build().GetSection("Autenticacion")["SecretKey"];
 
@@ -27,8 +27,9 @@ namespace SegurAppJWToken.JWToken
 
             var claims = new Claim[]
             {
-                new Claim("Email", mail),
-                new Claim("Name", "leandro"),
+                new Claim("IdUsuario", usuario),
+                new Claim("Name", name),
+                new Claim("Rol", rol),
             };
             var payload = new JwtPayload(
                  issuer: "algoasda",
@@ -37,6 +38,7 @@ namespace SegurAppJWToken.JWToken
                 notBefore: DateTime.Now,
                 expires: DateTime.Now.AddHours(6)
                 );
+
 
             var token = new JwtSecurityToken(header, payload);
             return new JwtSecurityTokenHandler().WriteToken(token);
