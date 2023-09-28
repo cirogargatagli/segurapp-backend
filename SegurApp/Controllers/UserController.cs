@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using SegurApp.Domain.Dto;
 using SegurApp.Infraestructure.Entities;
 using SegurApp.Services.Interfaces;
 using SegurAppJWToken.JWToken.Interfaces;
@@ -30,30 +31,28 @@ namespace SegurApp.Controllers
         [Authorize]
         public User GetById([FromQuery] Domain.QueryParameters queryParameters)
         {
-            string jwt = _tokenManejo.GenerateToken("", "", "");
             return _userService.GetById(queryParameters);
         }
 
         [HttpPost]
-        [Authorize]
-        public IActionResult CreateUser(string FullName, string Dni, string Email, string Phone, string Password)
+        public ActionResult CreateUser([FromBody]RequestCreateUser createUser)
         {
-            User user = _userService.CreateUser(FullName, Dni, Email, Phone, Password);
+            User user = _userService.CreateUser(createUser.FullName, createUser.Dni, createUser.Email, createUser.Phone, createUser.Password);
 
-            return Ok("Se realizó el alta correctamente");
+            return new JsonResult(user) { StatusCode = 201};//Ok("Se realizó el alta correctamente");
         }
 
         [HttpPost("Login")]
-        public IActionResult LoginUser(string email, string Password)
+        public ActionResult<ResponseLogin> LoginUser([FromBody]RequestLogin requestLogin)
         {
-            User user = _userService.LoginUser(email, Password);
+            User user = _userService.LoginUser(requestLogin.User, requestLogin.Password);
             if (user == null)
             {
-                return BadRequest("User/Pass Incorrecto");
+                return new JsonResult(new ResponseLogin { Jwt = null, Message = "User/Pass Incorrecto" }) { StatusCode = 400 };
             }
             string jwt = _tokenManejo.GenerateToken(user.Id.ToString(), user.FullName, user.RoleId.ToString());
 
-            return Ok(jwt);
+            return new JsonResult(new ResponseLogin { Jwt = jwt, Message = "OK"}) { StatusCode = 200};
         }
     }
 }
