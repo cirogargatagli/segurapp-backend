@@ -48,9 +48,9 @@ namespace SegurApp.Controllers
             User user = _userService.LoginUser(requestLogin.User, requestLogin.Password);
             if (user == null)
             {
-                return new JsonResult(new ResponseLogin { Jwt = null, Message = "User/Pass Incorrecto" }) { StatusCode = 400 };
+                return new JsonResult(new ResponseLogin { Jwt = null, Message = "Usuario o password incorrectos" }) { StatusCode = 400 };
             }
-            string jwt = _tokenManejo.GenerateToken(user.Id.ToString(), user.FullName, user.RoleId.ToString());
+            string jwt = _tokenManejo.GenerateToken(user);
 
             return new JsonResult(new ResponseLogin { Jwt = jwt, Message = "OK"}) { StatusCode = 200};
         }

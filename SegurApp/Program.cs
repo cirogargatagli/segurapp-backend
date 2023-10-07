@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using SegurApp.Infraestructure;
@@ -29,8 +30,6 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-//Autenticacion jwt
-builder.Services.AddJWTAuthentication(builder.Configuration);
 
 builder.Services.AddControllers().AddJsonOptions(x =>
                 x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
@@ -43,6 +42,23 @@ builder.Services.AddTransient<IMessageUserRepository, MessageUsersRepository>();
 builder.Services.AddTransient<IMessageUserService, MessageUserService>();
 builder.Services.AddTransient<IMessageService, MessageService>();
 builder.Services.AddTransient<IJWTokenManejo, JWTokenManejo>();
+
+//Autenticacion jwt
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, jwtBearerOptions =>
+                {
+                    jwtBearerOptions.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        IssuerSigningKey = new SymmetricSecurityKey(
+                        //Encoding.UTF8.GetBytes("25bf7728-f388-4276-aedb-81549186d8ee")
+                            Encoding.UTF8.GetBytes(builder.Configuration.GetSection("Autenticacion:SecretKey").Value)
+                            ),
+
+                        ValidateIssuer = false,
+                        ValidateAudience = false,
+                        RequireExpirationTime = false
+                    };
+                });
 
 //CORS
 

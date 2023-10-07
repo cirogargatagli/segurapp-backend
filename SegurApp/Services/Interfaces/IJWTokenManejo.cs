@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SegurApp.Infraestructure.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace SegurAppJWToken.JWToken.Interfaces
 {
     public interface IJWTokenManejo
     {
-        string GenerateToken(string usuario, string name, string rol);
+        string GenerateToken(User user);
     }
 }
