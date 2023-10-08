@@ -16,11 +16,11 @@ namespace SegurApp.Repository
             _context = context;
         }
 
-        public void Add(int emisorId, int messageId, double latitude, double longitude)
+        public void Add(int emisorId, int messageId, double latitude, double longitude, DateTime occurredAt)
         {
             _context.Add(new MessageUsers
             {
-                OccurredAt = DateTime.Now,
+                OccurredAt = occurredAt,
                 EmisorId = emisorId,
                 MessageId = messageId,
                 Latitude = latitude,
@@ -35,6 +35,6 @@ namespace SegurApp.Repository
                 .Include(e => e.Message).ToList();
 
             return messageUsers;
-        }      
+        }
     }
 }

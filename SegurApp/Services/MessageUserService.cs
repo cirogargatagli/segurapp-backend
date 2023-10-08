@@ -28,10 +28,9 @@ namespace SegurApp.Services
 
         public void SendMessageUser(SendMessageUserDto sendMessageUserDto)
         {
-            Message message = _messageRepository.GetByDescription(sendMessageUserDto.Message);
             User emisor = _userRepository.GetById(sendMessageUserDto.EmisorId);
-            _hubContext.Clients.All.SendAsync("ReceiveMessage", message, emisor, sendMessageUserDto.Latitude, sendMessageUserDto.Longitude);
-            _messageUserRepository.Add(sendMessageUserDto.EmisorId, message.Id, sendMessageUserDto.Latitude, sendMessageUserDto.Longitude);            
+            _hubContext.Clients.All.SendAsync("ReceiveMessage", sendMessageUserDto.Message, emisor, sendMessageUserDto.Latitude, sendMessageUserDto.Longitude, sendMessageUserDto.OccurredAt);
+            _messageUserRepository.Add(sendMessageUserDto.EmisorId, sendMessageUserDto.Message.Id, sendMessageUserDto.Latitude, sendMessageUserDto.Longitude, sendMessageUserDto.OccurredAt);
         }       
 
         public List<MessageUsers> GetAllMessage()
