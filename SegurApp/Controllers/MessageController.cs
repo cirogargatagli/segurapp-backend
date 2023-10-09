@@ -13,6 +13,10 @@ namespace SegurApp.Controllers
         {
             _messageService = messageService;
         }
+
+        /// <summary>
+        /// Filtrar todos los mensajes 
+        /// </summary>
         [HttpGet]
         public List<Message> GetMessages()
         {

@@ -17,6 +17,9 @@ namespace SegurApp.Controllers
             _messageUserService = messageUserService;
         }
 
+        ///<summary>
+        /// Envio de mensajes 
+        /// </summary>
         [HttpPost]
         public IActionResult SendMessage([FromBody] SendMessageUserDto body)
         {
@@ -31,6 +34,9 @@ namespace SegurApp.Controllers
             }
         }
 
+        ///<summary>
+        /// Filtrar todos los Mensajes 
+        /// </summary>
         [HttpGet]
         public List<MessageUsers> GetAllMessages()
         {

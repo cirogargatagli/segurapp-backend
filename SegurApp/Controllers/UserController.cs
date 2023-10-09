@@ -22,6 +22,9 @@ namespace SegurApp.Controllers
             _tokenManejo = tokenManejo;
         }
 
+        /// <summary>
+        /// Filtrar todos los Usuarios 
+        /// </summary>
         [HttpGet("all")]
         public List<User> GetAll() 
         {
@@ -30,6 +33,9 @@ namespace SegurApp.Controllers
             return user.ToList();
         }
 
+        /// <summary>
+        /// Filtrar los Usuarios por id
+        /// </summary>
         [HttpGet("id")]
         [Authorize]
         public User GetById([FromQuery] Domain.QueryParameters queryParameters)
@@ -37,6 +43,9 @@ namespace SegurApp.Controllers
             return _userService.GetById(queryParameters);
         }
 
+        /// <summary>
+        /// Creación de Usuarios 
+        /// </summary>
         [HttpPost("create")]
         public ActionResult CreateUser([FromBody]RequestCreateUser createUser)
         {
@@ -70,6 +79,9 @@ namespace SegurApp.Controllers
             return new JsonResult(new { User = user, Message = "Usuario creado con exito" }) { StatusCode = 201 };
         }
 
+        /// <summary>
+        /// Login de Usuario 
+        /// </summary>
         [HttpPost("Login")]
         public ActionResult<ResponseLogin> LoginUser([FromBody]RequestLogin requestLogin)
         {
@@ -84,6 +96,9 @@ namespace SegurApp.Controllers
             return new JsonResult(new ResponseLogin { Jwt = jwt, Message = "OK"}) { StatusCode = 200};
         }
 
+        /// <summary>
+        /// Eliminación de Usuario 
+        /// </summary>
         [HttpDelete("delete")]
         public IActionResult DeleteUser(int id)
         {
