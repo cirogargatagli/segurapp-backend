@@ -1,4 +1,5 @@
-﻿using Microsoft.IdentityModel.Tokens;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using SegurApp.Infraestructure.Entities;
 using SegurApp.Repository.Interfaces;
 using SegurApp.Services.Interfaces;
@@ -36,6 +37,11 @@ namespace SegurApp.Services
         public User LoginUser(string email, string password)
         {
             return _userRepository.GetLogin(email, password);
+        }
+
+        public void DeleteUser(int id)
+        {
+             _userRepository.DeleteUser(id);
         }
     }
 }

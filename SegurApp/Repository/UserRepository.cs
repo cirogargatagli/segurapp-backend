@@ -1,4 +1,5 @@
-﻿using SegurApp.Infraestructure;
+﻿using Microsoft.AspNetCore.Mvc;
+using SegurApp.Infraestructure;
 using SegurApp.Infraestructure.Entities;
 using SegurApp.Repository.Interfaces;
 
@@ -49,6 +50,14 @@ namespace SegurApp.Repository
         public User GetLogin(string email, string password)
         {
             return _context.Users.Where(x => x.Email == email && x.Password == password).FirstOrDefault();
+        }
+
+        public void DeleteUser(int id)
+        {
+            var user = _context.Users.FirstOrDefault(x => x.Id == id);
+
+            _context.Remove(user);
+            _context.SaveChanges(true);
         }
     }
 }
