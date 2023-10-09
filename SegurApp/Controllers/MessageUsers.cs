@@ -3,6 +3,7 @@ using SegurApp.Domain.Dto;
 using SegurApp.Infraestructure.Entities;
 using SegurApp.Services;
 using SegurApp.Services.Interfaces;
+using System.Collections.Generic;
 
 namespace SegurApp.Controllers
 {
@@ -38,11 +39,22 @@ namespace SegurApp.Controllers
         /// Filtrar todos los Mensajes 
         /// </summary>
         [HttpGet]
-        public List<MessageUsers> GetAllMessages()
+        public IActionResult GetAllMessages()
         {
             try
             {
-                return _messageUserService.GetAllMessage();
+                List<MessageUsers> messageUsers = new List<MessageUsers>();
+
+                messageUsers = _messageUserService.GetAllMessage();
+
+                if (messageUsers.Count() == 0)
+                {
+                    return NotFound(new { Message = "No hay mensajes disponibles." });
+                }
+                else
+                {
+                    return Ok(messageUsers);
+                }
             }
             catch (Exception ex)
             {
